@@ -13,9 +13,9 @@ Run this file from within the Chroma container with `python ./ExampleAnalysis.py
 """
 
 def main():
-    #experiment_name = "8refelctortall"
-    experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM" #define experiment
-    LABEL = "8Silicon-NOREFLECTOR" # label configuration or properties
+    experiment_name = "8Silicon35_87"
+    # experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM" #define experiment
+    LABEL = "doc_test" # label configuration or properties
 
     num_particles = 500_000
     seed = 1042
