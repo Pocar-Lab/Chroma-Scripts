@@ -1,0 +1,19 @@
+name,stl_filepath,inner_mat,outer_mat,surface,color,displacement x,displacement y,displacement z,solid_type,killing surface
+
+sipm,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - SipmSubAssembly-1 SipmPlate-1.STL,silicon,liquid xenon,FBK HD3,black,0,0,0,pmt,False
+
+source,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - sourceflippedassem-1 sourcepart3-2.STL,steel,liquid xenon,None,red,0,0,0,none,False
+
+silica window,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - silicawindow-1 SilicaWindow-1.STL,silica,liquid xenon,None,cyan,0,0,0,solid,False
+
+copper reflector,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - Copper Reflector-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,False
+
+silica gasket 1,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - silicawindow-1 SilicaGasket.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,True
+
+silica gasket 2,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - silicawindow-1 SilicaGasket.step-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,True
+
+copper plate 1,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - SiPM-Disk-1.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,True
+
+copper plate 2,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - SiPM-Disk-2-Updated-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,True
+
+copper washer,/workspace/data_files/stl_files/Sebastian/2023_6_20_Copper_teflon_corrected/CopperReflectorAssemwithFO - WasherReplacement-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,True
