@@ -35,10 +35,7 @@ def main():
     experiment_name = None
     num_particles = 1_000_000
     seed = np.random.randint(0,1000000)
-    run_id = 1
-    visualize = False
     plots = []
-    write = False
 
     for opt, arg in opts:
         if opt == '-e':
@@ -59,12 +56,10 @@ def main():
     print('Experiment Name:         ' + experiment_name)
     print('Number of particles:     ' + str(num_particles))
     print('Seed:             ' + str(seed))
-    print('Visualize:               ' + str(visualize))
     if(len(plots) > 0):
         print('Plots:                   ' + ', '.join(plots))
     else:
         print('Plots:                   ' + 'None')
-    print('Saving Data:             ' + str(write))
 
     mm = material_manager(experiment_name=experiment_name)
     sm = surface_manager(material_manager = mm, experiment_name = experiment_name)
