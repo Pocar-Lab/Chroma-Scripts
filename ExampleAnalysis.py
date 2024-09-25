@@ -13,12 +13,12 @@ Run this file from within the Chroma container with `python ./ExampleAnalysis.py
 """
 
 def main():
-    experiment_name = "8Silicon35_87"
+    experiment_name = "Sebastian_07.20.2022(liquefaction)_correctedSiPM"
     # experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM" #define experiment
-    LABEL = "doc_test" # label configuration or properties
+    LABEL = "DIFFUSIVE-COPPER" # label configuration or properties
 
-    num_particles = 500_000
-    seed = 1042
+    num_particles = 100_000_000
+    seed = 5020
     plots = [
             "plot_all_tracks" ,
             "plot_detected_tracks" ,
@@ -37,14 +37,15 @@ def main():
              ]
 
     # e = [1, 2, 3, 4, 5, 6, 7, 8] #exclude outer
-    e = [2, 3, 4, 5, 6, 7, 8, 9] #exclude outer
+    # e = [2, 3, 4, 5, 6, 7, 8, 9] #exclude outer
 
     # e = [9, 10, 11, 12, 13, 14, 15, 16] #exclude outer
 
     # e = [1, 3, 5, 7] #exclude outer
 
-    e = [f"reflector{i}" for i in e]
-    # e = None
+    # e = [f"reflector{i}" for i in e]
+    e = None
+    # e = ["copper reflector"]
     print(f"Experiment Name: {experiment_name}")
     print(f"Number of particles: {num_particles}")
     print(f"Random seed: {seed}")
