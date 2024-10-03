@@ -111,7 +111,7 @@ def main():
         if csvfile.read(1) == "":
             writer.writeheader()
 
-    for k_si, n_si in itertools.product(np.linspace(.5, 2.5, 3), np.linspace(.5, 1.5, 2)):
+    for k_si, n_si in itertools.product(np.linspace(.74, .96, 12), np.linspace(1.71, 2.08, 18)):
             with suppress_stdout(): #suppress output to not clog up the log
                 pte_8, pte_err_8, pte_4, pte_err_4 = run_tall_batch(n_si, k_si) #run 8 reflector
 
