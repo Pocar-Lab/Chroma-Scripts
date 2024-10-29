@@ -45,5 +45,7 @@ titles = [
 for i in range(10):
     plt.bar(x_values, all_arrays[i], width=0.5, align='edge')
     plt.title(titles[i])
+    plt.xlabel("Incident Angle")
+    plt.ylabel("Photon Count")
     plt.savefig(f"{titles[i]}.png", dpi=300)
     plt.close()
