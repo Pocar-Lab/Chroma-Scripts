@@ -113,7 +113,8 @@ def run_LED_reflector(n_si, k_si, spec_r, run_id):
     seed = 1042
     visualize = False
     plots = []
-    exclusion = [1, 3, 5, 7]
+    # exclusion = [1, 3, 5, 7]
+    exclusion = []
     excluded = [f"reflector{i}" for i in exclusion]
     print(f"Experiment Name: {experiment_name}")
     print(f"Number of particles: {num_particles}")
@@ -137,7 +138,7 @@ def run_LED_reflector(n_si, k_si, spec_r, run_id):
     gm = geometry_manager(
         experiment_name=experiment_name,
         surf_manager=sm,
-        exclude=excluded
+        # exclude=excluded
     )
     fail_counter = 0
 

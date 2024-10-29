@@ -10,6 +10,7 @@ from PocarChroma.geometry_manager import geometry_manager
 from PocarChroma.run_manager import run_manager
 from PocarChroma.material_manager import material_manager
 from PocarChroma.surface_manager import surface_manager
+from PocarChroma.analysis_manager import analysis_manager
 
 import time
 
@@ -65,7 +66,19 @@ def main():
     sm = surface_manager(material_manager = mm, experiment_name = experiment_name)
     gm = geometry_manager(experiment_name=experiment_name,surf_manager = sm)
     rm = run_manager(geometry_manager=gm, experiment_name=experiment_name, random_seed=seed, num_particles=num_particles,plots=plots)
-    return rm.ana_man.get_end_time()
+    photons, photon_tracks, particle_histories = rm.get_simulation_results()
+    am = analysis_manager(
+                gm,
+                experiment_name,
+                plots,
+                photons,
+                photon_tracks,
+                seed,
+                particle_histories,
+                save = False,
+                show = True,
+            )    
+    return am.get_end_time()
 
 
 if __name__ == '__main__':
