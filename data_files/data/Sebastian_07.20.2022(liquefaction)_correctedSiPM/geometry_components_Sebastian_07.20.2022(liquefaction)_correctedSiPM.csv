@@ -10,7 +10,7 @@ silica gasket 1,/workspace/data_files/stl_files/Sebastian/2022_6_22_corrected/Ju
 
 silica gasket 2,/workspace/data_files/stl_files/Sebastian/2022_6_22_corrected/JulyRunRebuild - silicawindow-1 SilicaGasket.step-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,False
 
-copper plate 1,/workspace/data_files/stl_files/Sebastian/2022_6_22_corrected/JulyRunRebuild - SiPM-Disk-1.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,False
+copper plate 1,/workspace/data_files/stl_files/Sebastian/2022_6_22_corrected/JulyRunRebuild - SiPM-Disk-1.step-1.STL,copper,liquid xenon,None,orange,0,0,0,solid,False
 
 copper plate 2,/workspace/data_files/stl_files/Sebastian/2022_6_22_corrected/JulyRunRebuild - SiPM-Disk-2.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid,False
 
