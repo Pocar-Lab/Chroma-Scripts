@@ -67,6 +67,8 @@ def main():
 
     dm = document_manager(rm.ana_man, LABEL)
     dm.compile()
+    #temporary new code:
+    #print(rm.ana_man.pte)
 
 if __name__ == "__main__":
     s = time.time()

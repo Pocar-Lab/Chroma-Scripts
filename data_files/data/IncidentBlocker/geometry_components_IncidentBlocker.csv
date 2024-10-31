@@ -1,0 +1,16 @@
+name,stl_filepath,inner_mat,outer_mat,surface,color,displacement x,displacement y,displacement z,solid_type
+sipm,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - FBKSiPMAssem-1 SipmPlate-1.STL,silicon,liquid xenon,FBK HD3,black,0,0,0,pmt
+source,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - source-1 sourcepart3-2.STL,steel,liquid xenon,None,red,0,0,0,none
+blocker,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - source_blocker-1.STL,steel,liquid xenon,killing surface,red,0,0,0,solid
+silica window,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaWindow-1.STL,silica,liquid xenon,None,cyan,0,0,0,solid
+silica gasket 1,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaGasket.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+silica gasket 2,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaGasket.step-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+copper plate 1,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - SiPM-Disk-1.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+copper plate 2,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - SiPM-Disk-2.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+copper washer,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - WasherReplacement-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+reflectorholder1,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 2023_5_23_SilicaGasketCut-5.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+reflectorholder2,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 2023_5_23_SilicaGasketCut-6.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
+reflector13,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 reflector-13.STL,silicon,liquid xenon,silicon-Xe,grey,0,0,0,solid
+reflector14,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 reflector-14.STL,silicon,liquid xenon,silicon-Xe,grey,0,0,0,solid
+reflector15,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 reflector-15.STL,silicon,liquid xenon,silicon-Xe,grey,0,0,0,solid
+reflector16,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - 2023_5_26 ReflectorHolderAssemTall-1 reflector-16.STL,silicon,liquid xenon,silicon-Xe,grey,0,0,0,solid
