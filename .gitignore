@@ -1,6 +1,4 @@
 ./results/
 results/
-data_files/stl_files/
-*.stl
 *.pdf
 *.png
