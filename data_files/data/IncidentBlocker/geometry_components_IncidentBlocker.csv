@@ -1,7 +1,7 @@
 name,stl_filepath,inner_mat,outer_mat,surface,color,displacement x,displacement y,displacement z,solid_type
 sipm,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - FBKSiPMAssem-1 SipmPlate-1.STL,silicon,liquid xenon,FBK HD3,black,0,0,0,pmt
 source,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - source-1 sourcepart3-2.STL,steel,liquid xenon,None,red,0,0,0,none
-blocker,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - source_blocker-1.STL,steel,liquid xenon,killing surface,red,0,0,0,solid
+blocker,/workspace/data_files/stl_files/IncidentBlocker/2024_11_8_Assembly_N8_Palladium_Tall_fixed_blocker(0.7) - source_blocker-1.STL,steel,liquid xenon,killing surface,red,0,0,0,solid
 silica window,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaWindow-1.STL,silica,liquid xenon,None,cyan,0,0,0,solid
 silica gasket 1,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaGasket.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
 silica gasket 2,/workspace/data_files/stl_files/IncidentBlocker/2024_10_10_Assembly_N8_Palladium_Tall_blocker - silicawindow-1 SilicaGasket.step-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid

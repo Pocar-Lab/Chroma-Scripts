@@ -2,7 +2,7 @@
 #it is here to test havin analysis scripts as a separate folder
 
 #!/usr/bin/env python
-
+import pandas as pd
 import sys, getopt
 import numpy as np
 
@@ -13,6 +13,10 @@ from PocarChroma.surface_manager import surface_manager
 from PocarChroma.analysis_manager import analysis_manager
 
 import time
+def overwrite_scattering_length(filepath = 'Chroma-Scripts/data_files/bulk_materials_starter.csv', new_value = 100):
+    df = pd.read_csv(filepath)
+    df['scattering_length'] = new_value
+    df.to_csv(filepath, index = False)
 
 def usage():
     print ("=====================================================================")
@@ -80,6 +84,7 @@ def main():
                 show = True,
             )    
     return am.get_end_time()
+
 
 
 if __name__ == '__main__':
