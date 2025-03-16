@@ -3,6 +3,7 @@ from PocarChroma.geometry_manager import geometry_manager
 from PocarChroma.run_manager import run_manager
 import time
 from PocarChroma.document_manager import document_manager
+from PocarChroma.analysis_manager import analysis_manager
 
 """
 This run is just to make sure the the tilted reflector geometry functions properly
@@ -13,23 +14,11 @@ def main():
     # experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM" #define experiment
     LABEL = "Test Run" # label configuration or properties
 
-    num_particles = 100_000_000
+    num_particles = 1_000_000
     seed = 5020
     plots = [
-            "plot_all_tracks" ,
-            "plot_detected_tracks" ,
-            "plot_undetected_tracks" ,
-            "plot_reflected_tracks" ,
-            "plot_filtered_scattered_tracks" ,
-            "plot_detected_reflected_tracks" ,
-            "plot_specular_reflected_tracks" ,
-            "plot_diffuse_reflected_tracks" ,
-            "plot_refl_multiplicity" ,
-            "photon_shooting_angle" ,
-            "photon_incident_angle_emission_angle_correlation" ,
             "plot_angle_hist" ,
-            "plot_refl_angle" ,
-            "plot_position_hist" 
+             "plot_detected_tracks"
              ]
 
     e = None
@@ -52,9 +41,22 @@ def main():
         batches=True
     )
     print("Run manager complete")
+    
+    photons, photon_tracks, particle_histories = rm.get_simulation_results()
+    am = analysis_manager(
+                gm,
+                experiment_name,
+                plots,
+                photons,
+                photon_tracks,
+                seed,
+                particle_histories,
+                save = False,
+                show = True,
+            )    
+    print("Run manager complete")
 
-    dm = document_manager(rm.ana_man, LABEL)
-    dm.compile()
+
 
 if __name__ == "__main__":
     s = time.time()

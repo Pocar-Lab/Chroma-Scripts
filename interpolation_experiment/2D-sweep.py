@@ -290,6 +290,122 @@ def run_4_reflector(n_si, k_si, spec_r, run_id):
     return pte, rm.ana_man.pte_st_dev
 
 
+def run_blocked_half_reflectors(n_si, k_si, spec_r, run_id):
+    """
+    Run  8 reflector simulation, return results
+    """
+    experiment_name = "8HalfReflectors28_56"
+    num_particles = 1_000_000
+    seed = 1042
+    visualize = False
+    plots = []
+    print(f"Experiment Name: {experiment_name}")
+    print(f"Number of particles: {num_particles}")
+    print(f"Random seed: {seed}")
+    print(f"Run ID: {run_id}")
+    print(f"Visualize: {visualize}")
+    print(f"Plots: {plots}")
+    print(f"k_si={k_si}, n_si={n_si}")
+    ptes = []
+    ptes_err = []
+    mm = material_manager(experiment_name) 
+    #mm.add_attributes(mm.materials["liquid xenon"], refractive_index=n_xe)
+    mm.add_attributes(mm.materials["silicon"], refractive_index=n_si)
+    mm.material_props["silicon"]["eta"] = n_si
+    mm.material_props["silicon"]["k"] = k_si
+    mm.material_props["liquid xenon"]["scattering_length"] = 300
+    sm = surface_manager(mm, experiment_name) 
+    sm.overwrite_property("silicon-Xe", "reflect_specular", spec_r)
+    sm.overwrite_property("silicon-Xe", "reflect_diffuse", 1-spec_r)
+
+    gm = geometry_manager(
+        experiment_name=experiment_name,
+        # run_id=run_id, 
+        # visualize=visualize,
+        surf_manager=sm
+    )
+    fail_counter = 0
+
+    while fail_counter < 3: #handle rare CUDA error
+        try:
+            rm = run_manager(
+                geometry_manager=gm,
+                experiment_name=experiment_name,
+                random_seed=seed,
+                num_particles=num_particles,
+                # run_id=run_id,
+                plots=plots,
+            )
+        except Exception as e:
+            fail_counter += 1
+            print("meow")
+            if fail_counter == 3:
+                print("failed 3 times")
+                print(e)
+                raise e
+                exit()
+            continue
+        break
+
+    pte = rm.ana_man.photon_transmission_efficiency
+
+    return pte, rm.ana_man.pte_st_dev
+
+
+def run_blocked_4_reflectors(n_si, k_si, spec_r, run_id):
+    """
+    Run  blocked 4 reflector simulation, return results
+    """
+    experiment_name = "IncidentBlocker"
+    num_particles = 1_000_000
+    seed = 1042
+    visualize = False
+    plots = []
+    ptes = []
+    ptes_err = []
+    mm = material_manager(experiment_name) 
+    #mm.add_attributes(mm.materials["liquid xenon"], refractive_index=n_xe)
+    mm.add_attributes(mm.materials["silicon"], refractive_index=n_si)
+    mm.material_props["silicon"]["eta"] = n_si
+    mm.material_props["silicon"]["k"] = k_si
+    # mm.material_props["liquid xenon"]["scattering_length"] = 300
+    sm = surface_manager(mm, experiment_name) 
+    sm.overwrite_property("silicon-Xe", "reflect_specular", spec_r)
+    sm.overwrite_property("silicon-Xe", "reflect_diffuse", 1-spec_r)
+
+    gm = geometry_manager(
+        experiment_name=experiment_name,
+        # run_id=run_id, 
+        # visualize=visualize,
+        surf_manager=sm
+    )
+    fail_counter = 0
+
+    while fail_counter < 3: #handle rare CUDA error
+        try:
+            rm = run_manager(
+                geometry_manager=gm,
+                experiment_name=experiment_name,
+                random_seed=seed,
+                num_particles=num_particles,
+                # run_id=run_id,
+                plots=plots,
+            )
+        except Exception as e:
+            fail_counter += 1
+            print("meow")
+            if fail_counter == 3:
+                print("failed 3 times")
+                print(e)
+                raise e
+                exit()
+            continue
+        break
+
+    pte = rm.ana_man.photon_transmission_efficiency
+
+    return pte, rm.ana_man.pte_st_dev
+
 def main():
     results = []
     run_id = 1
@@ -297,9 +413,11 @@ def main():
 
     #iterate over all combinations of chosen values of k_si, n_si
     n_si = 0.5
-    for k_si, spec_r in itertools.product(np.linspace(.5, 1.4, 25), np.linspace(0, 1, 25)):
+    for k_si, spec_r in itertools.product(np.linspace(.5, 1.4, 5), np.linspace(0, 1, 5)):
             with suppress_stdout(): #suppress output to not clog up the log
-                pte_8, pte_err_8 = run_8_reflector(n_si, k_si,spec_r, run_id) #run 8 reflector
+                # pte_8, pte_err_8 = run_8_reflector(n_si, k_si,spec_r, run_id) #run 8 reflector
+                pte_half, pte_err_half = run_blocked_half_reflectors(n_si, k_si,spec_r, run_id) #run 8 reflector
+
                 # pte_4, pte_err_4 = run_4_reflector(n_si, k_si, run_id) #run 4 reflector
 
                 #compile results and info
@@ -308,10 +426,12 @@ def main():
                     'k_si': k_si,
                     'n_si': n_si,
                     "spec_r": spec_r,
-                    'pte_8': pte_8,
-                    'pte_8_error': pte_err_8,
+                    # 'pte_8': pte_8,
+                    # 'pte_8_error': pte_err_8,
                     # "pte_4": pte_4,
                     # "pte_4_error": pte_err_4
+                    'pte_half': pte_half,
+                    'pte_half_err': pte_err_half,
                 })
                 run_id += 1
 
@@ -329,6 +449,57 @@ def main():
     print(f"Results have been written to {csv_filename}")
 
 
+
+def run_4_short_reflector(k_si, spec_r):
+    """
+    Run 4 reflector config
+    """
+    experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM"
+    num_particles = 1_000_000
+    seed = 1042
+    visualize = False
+    plots = []
+    exclusion = [4,6,7,8]
+    excluded = [f"reflector{i}" for i in exclusion]
+    
+
+    mm = material_manager(experiment_name) 
+    mm.material_props["silicon"]["k"] = k_si
+    
+    sm = surface_manager(mm, experiment_name) 
+    sm.overwrite_property("silicon-Xe", "reflect_specular", spec_r)
+    sm.overwrite_property("silicon-Xe", "reflect_diffuse", 1-spec_r)
+
+    gm = geometry_manager(
+        experiment_name=experiment_name,
+        surf_manager=sm,
+        exclude=excluded
+    )
+    
+    fail_counter = 0
+    
+    while fail_counter < 3: #handle rare CUDA error
+        try:
+            rm = run_manager(
+                geometry_manager=gm,
+                experiment_name=experiment_name,
+                random_seed=seed,
+                num_particles=num_particles,
+                plots=plots,
+            )
+        except Exception as e:
+            fail_counter += 1
+            if fail_counter == 3:
+                print("failed 3 timess")
+                print(e)
+                raise e
+                exit()
+            continue
+        break
+
+    pte = rm.ana_man.photon_transmission_efficiency
+
+    return pte
 
 if __name__ == "__main__":
     s = time.time()

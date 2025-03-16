@@ -6,7 +6,10 @@ begin
         """
 
     # run4 = pyimport("2D-sweep")["run_4_reflector"]
-    runLED = pyimport("2D-sweep")["run_LED_reflector"]
+    # runLED = pyimport("2D-sweep")["run_LED_reflector"]
+    run4shortSilicon = pyimport("2D-sweep")["run_4_short_reflector"]
+
+    #def run_4_short_reflector(k_si, spec_r):
 
 
     println("Running reflectors in julia")
@@ -19,9 +22,10 @@ begin
         global cnt += 1
         println(a)
         println(b)
-        a = runLED(1, a, b, 0)[1]
+
+        pte = run4shortSilicon(a, b)
         println("cnt=$cnt")
-        return a
+        return pte
     end
     println(cnt)
     qtt, ranks, errors = quanticscrossinterpolate(Float64, f, [k, spec_ratio]; tolerance=1e-4, maxbonddim=10)
@@ -40,7 +44,7 @@ begin
 
     vals = qtt.(collect(1:1024), collect(1:1024)')
     # Call the function to save the matrix
-    save_matrix_to_file(vals, "matrix_tilted_k_sr.txt")
+    save_matrix_to_file(vals, "matrix_4_silicon_short_k_sr.txt")
     exit()
 
 end

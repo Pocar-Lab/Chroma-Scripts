@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from PocarChroma.geometry_manager import geometry_manager
 from PocarChroma.run_manager import run_manager
+from PocarChroma.analysis_manager import analysis_manager
 import time
 from PocarChroma.document_manager import document_manager
 
@@ -21,9 +22,8 @@ def main():
     seed = 5020
     plots = [
             
-            "plot_detected_tracks" ,
            
-            "plot_angle_hist" ,
+            "plot_angle_hist" , "plot_all_tracks", "plot_detected_tracks"
             
              ]
 
@@ -35,7 +35,7 @@ def main():
     # e = [1, 3, 5, 7] #exclude outer
 
     # e = [f"reflector{i}" for i in e]
-    e = None
+    e = ['reflectorholder1', 'reflectorholder2', 'reflector13', 'reflector14', 'reflector15','reflector16']
     # e = ["copper reflector"]
     print(f"Experiment Name: {experiment_name}")
     print(f"Number of particles: {num_particles}")
@@ -56,20 +56,18 @@ def main():
     )
     print("Run manager complete")
     
-    data = rm.photon_tracks
-
-    css_content = f"/* shape: {data.shape} */\n:root {{\n"
-    for i in range(data.shape[0]):
-        for j in range(data.shape[1]):
-            css_content += f"  --data-{i}-{j}: {', '.join(map(str, data[i][j]))};\n"
-    css_content += "}"
-
-    with open("data.css", "w") as f:
-        f.write(css_content)
-    
-    # print("Photon Tracks CSS File Saved!")
-    print(len(rm.photon_tracks))
-    print(len(rm.photon_tracks[0]))
+    photons, photon_tracks, particle_histories = rm.get_simulation_results()
+    am = analysis_manager(
+                gm,
+                experiment_name,
+                plots,
+                photons,
+                photon_tracks,
+                seed,
+                particle_histories,
+                save = False,
+                show = True,
+            )    
     
     # dm = document_manager(rm.ana_man, LABEL)
     # dm.compile()
