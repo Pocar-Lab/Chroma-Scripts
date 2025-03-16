@@ -2,3 +2,5 @@
 results/
 *.pdf
 *.png
+data_files/
+ExampleAnalysis.py
