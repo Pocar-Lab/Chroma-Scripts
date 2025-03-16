@@ -8,7 +8,7 @@
 - **Researchers**: Nick Yazbek
 
 ## Purpose  
-Due to findings (20240802 Chroma Slides) we realized that the 4 and 8 reflector configurations are very correlated, making it challenging to use both of them to break degeneracies. From (20240806 Chroma Slides), brainstorming different ways to break the degeneracies, only a few methods seemed plausible. Tilting the reflectors was one of them. This study aims to simulate the effects of tilting the reflectors to see if it can help us get meaningful results on the reflectivity of silicon.
+Due to findings (20240802 Chroma Slides, Luc's Augsut 2024 Analysis) we realized that the 4 and 8 reflector configurations are very correlated, making it challenging to use both of them to break degeneracies. From (20240806 Chroma Slides), brainstorming different ways to break the degeneracies, only a few methods seemed plausible. Tilting the reflectors was one of them. This study aims to simulate the effects of tilting the reflectors to see if it can help us get meaningful results on the reflectivity of silicon.
 
 ## Methods  
 Geometries were created by fitting the bottom of the reflector into the inner groove and the top of the reflector into the outer groove. Simulations were then run to observe the effects of tilting the reflectors.
