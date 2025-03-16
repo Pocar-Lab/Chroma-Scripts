@@ -85,6 +85,7 @@ def main():
 
 def calculate_distance(pte,pte_inf,absorption_length):
      return -absorption_length * unc.umath.log(pte/pte_inf)
+
 if __name__ == '__main__':
 	s = time.time()
 	e = main()
