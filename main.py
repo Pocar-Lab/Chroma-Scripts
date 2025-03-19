@@ -6,11 +6,11 @@ import pandas as pd
 import sys, getopt
 import numpy as np
 
-from PocarChroma.geometry_manager import geometry_manager
-from PocarChroma.run_manager import run_manager
-from PocarChroma.material_manager import material_manager
-from PocarChroma.surface_manager import surface_manager
-from PocarChroma.analysis_manager import analysis_manager
+from PocarChroma.geometry_manager import GeometryManager
+from PocarChroma.run_manager import RunManager
+from PocarChroma.material_manager import MaterialManager
+from PocarChroma.surface_manager import SurfaceManager
+from PocarChroma.analysis_manager import AnalysisManager
 
 import time
 def overwrite_scattering_length(filepath = 'Chroma-Scripts/data_files/bulk_materials_starter.csv', new_value = 100):
@@ -67,12 +67,12 @@ def main():
     else:
         print(f"{'Plots:':<25} {'None':>27}")
 
-    mm = material_manager(experiment_name=experiment_name)
-    sm = surface_manager(material_manager = mm, experiment_name = experiment_name)
-    gm = geometry_manager(experiment_name=experiment_name,surf_manager = sm)
-    rm = run_manager(geometry_manager=gm, experiment_name=experiment_name, random_seed=seed, num_particles=num_particles,plots=plots)
+    mm = MaterialManager(experiment_name=experiment_name)
+    sm = SurfaceManager(material_manager = mm, experiment_name = experiment_name)
+    gm = GeometryManager(experiment_name=experiment_name,surf_manager = sm)
+    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles)
     photons, photon_tracks, particle_histories = rm.get_simulation_results()
-    am = analysis_manager(
+    am = AnalysisManager(
                 gm,
                 experiment_name,
                 plots,
