@@ -9,11 +9,9 @@ begin
     run_blocked_4 = pyimport("2D-sweep")["run_blocked_half_reflectors"]
 	
     println("Running reflectors in julia")
-    n = collect(range(0.5, 1.5; length=1024))
-
-    k = collect(range(0.5, 2.5; length=1024))
-    # spec_ratio = collect(range(0.1, 1.0; length=1024))
-
+    n = collect(range(0.2, 1.2; length=201))
+    spec_ratio = collect(range(0.0, 1.0; length=201))
+    
     run_blocked_4(0.1, 0.1, 0.1, 5)
     global cnt = 0
     function f(a, b)
