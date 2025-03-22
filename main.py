@@ -70,7 +70,7 @@ def main():
     mm = MaterialManager(experiment_name=experiment_name)
     sm = SurfaceManager(material_manager = mm, experiment_name = experiment_name)
     gm = GeometryManager(experiment_name=experiment_name,surf_manager = sm)
-    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles)
+    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles, batch_size = 2_500_000)
     photons, photon_tracks, particle_histories = rm.get_simulation_results()
     am = AnalysisManager(
                 gm,
@@ -81,7 +81,8 @@ def main():
                 seed,
                 particle_histories,
                 save = False,
-                show = True,
+                show = False,
+                print = True,
             )    
     return am.get_end_time()
 
