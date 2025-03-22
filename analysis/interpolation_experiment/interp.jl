@@ -6,24 +6,24 @@ begin
         """
 
     #run8 = pyimport("2D-sweep")["run_8_reflector"]
-    run_blocked_4 = pyimport("2D-sweep")["run_blocked_half_reflectors"]
+    run_tall_4 = pyimport("loick-2D-sweep")["run_4_tall_reflector"]
 	
     println("Running reflectors in julia")
-    n = collect(range(0.2, 1.2; length=201))
-    spec_ratio = collect(range(0.0, 1.0; length=201))
-    
-    run_blocked_4(0.1, 0.1, 0.1, 5)
+
+    n = collect(range(0.2, 1.2; length=256))
+    spec_ratio = collect(range(0.0, 1.0; length=256))
+
     global cnt = 0
     function f(a, b)
         global cnt += 1
         println(a)
         println(b)
-        a = run_blocked_4(a, b, 0.7, 0)[1]
+        a = run_tall_4(a, b)
         println("cnt=$cnt")
         return a
     end
     println(cnt)
-    qtt, ranks, errors = quanticscrossinterpolate(Float64, f, [n, k]; tolerance=1e-4, maxbonddim=10)
+    qtt, ranks, errors = quanticscrossinterpolate(Float64, f, [n, spec_ratio]; tolerance=1e-5, maxbonddim=10)
 end
 
 begin
@@ -37,8 +37,8 @@ begin
     end
 
 
-    vals = qtt.(collect(1:1024), collect(1:1024)')
+    vals = qtt.(collect(1:256), collect(1:256)')
     # Call the function to save the matrix
-    save_matrix_to_file(vals, "matrix_half_n_k_scattering_300.txt")
+    save_matrix_to_file(vals, "matrix_4_tall_n_0.2-1.2_sr_0-1.txt")
 
 end
