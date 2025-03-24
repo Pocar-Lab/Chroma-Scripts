@@ -81,12 +81,10 @@ def run_4_tall_reflector(n_si, spec_r):
     num_particles = 2_000_000
     seed = 1042
     plots = []
-    exclusion = []
+    exclusion = [1,3,5,7]
     excluded = [f"reflector{i}" for i in exclusion]
     k_si = 0.5
-    
-    ptes = []
-    ptes_err = []
+
     mm = MaterialManager(experiment_name) 
 
     mm.add_attributes(mm.materials["silicon"], refractive_index=n_si)
