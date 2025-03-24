@@ -13,10 +13,6 @@ from PocarChroma.surface_manager import SurfaceManager
 from PocarChroma.analysis_manager import AnalysisManager
 
 import time
-def overwrite_scattering_length(filepath = 'Chroma-Scripts/data_files/bulk_materials_starter.csv', new_value = 100):
-    df = pd.read_csv(filepath)
-    df['scattering_length'] = new_value
-    df.to_csv(filepath, index = False)
 
 def usage():
     print ("=====================================================================")
