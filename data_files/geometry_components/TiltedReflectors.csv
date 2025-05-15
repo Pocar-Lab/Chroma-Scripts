@@ -4,7 +4,6 @@ source,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedRef
 silica window,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - silicawindow-1 SilicaWindow-1.STL,silica,liquid xenon,None,cyan,0,0,0,solid
 silica gasket 1,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - silicawindow-1 SilicaGasket.step-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
 silica gasket 2,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - silicawindow-1 SilicaGasket.step-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
-
 copper washer,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - WasherReplacement-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
 reflectorholder1,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - 2024_10_4 ReflectorHolderAssemTall - Loick-1 SilicaGasketCut - Loick-1.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
 reflectorholder2,/workspace/data_files/stl_files/TiltedReflectors/TiltedGeometry/TiltedReflectors/2024_10_4_Assembly_N8_Palladium_Tall - Loick - 2024_10_4 ReflectorHolderAssemTall - Loick-1 SilicaGasketCut - Loick-2.STL,copper,liquid xenon,Cu-Xe,orange,0,0,0,solid
