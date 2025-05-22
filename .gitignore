@@ -4,3 +4,4 @@ results/
 *.png
 data_files/
 ExampleAnalysis.py
+*.pyc

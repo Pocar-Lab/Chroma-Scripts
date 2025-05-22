@@ -66,7 +66,7 @@ def main():
     mm = MaterialManager(experiment_name=experiment_name)
     sm = SurfaceManager(material_manager = mm, experiment_name = experiment_name)
     gm = GeometryManager(experiment_name=experiment_name,surf_manager = sm)
-    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles, batch_size = 2_500_000)
+    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles, batch_size = 5_000_000)
     photons, photon_tracks, particle_histories = rm.get_simulation_results()
     am = AnalysisManager(
                 gm,
@@ -80,6 +80,18 @@ def main():
                 show = False,
                 print = True,
             )    
+    
+    def save_to_csv(photons, photon_tracks, particle_histories, experiment_name):
+        photons_df = pd.DataFrame(photons)
+        photon_tracks_df = pd.DataFrame(photon_tracks)
+        particle_histories_df = pd.DataFrame(particle_histories)
+        
+        photons_df.to_csv(f"{experiment_name}_photons.csv", index=False)
+        photon_tracks_df.to_csv(f"{experiment_name}_photon_tracks.csv", index=False)
+        particle_histories_df.to_csv(f"{experiment_name}_particle_histories.csv", index=False)
+        
+    # save_to_csv(photons, photon_tracks, particle_histories, experiment_name)
+
     return am.get_end_time()
 
 

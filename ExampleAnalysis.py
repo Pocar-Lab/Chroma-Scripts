@@ -19,8 +19,6 @@ Run this file from within the Chroma container with `python ./ExampleAnalysis.py
 
 def main():
     experiment_name = "8Silicon35_87"
-    # experiment_name = "Sebastian_08.01.2023(liquefaction)_correctedSiPM" #define experiment
-    LABEL = "SHORT-INNER-SPECULAR-REFLECTOR" # label configuration or properties
 
     num_particles = 2_000_000
     seed = np.random.randint(0,10000)
@@ -57,15 +55,24 @@ def main():
     print(f"Plots: {plots}")
     print(f"Exclusions: {e}")
 
-    gm = GeometryManager(
-        experiment_name=experiment_name, exclude=e
-    )
-    rm = RunManager(
-        geometry_manager=gm,
-        random_seed=seed,
-        num_particles=num_particles,
-    )
-    print("Run manager complete")
+
+    mm = MaterialManager(experiment_name=experiment_name)
+    sm = SurfaceManager(material_manager = mm, experiment_name = experiment_name)
+    gm = GeometryManager(experiment_name=experiment_name,surf_manager = sm)
+    rm = RunManager(geometry_manager=gm,random_seed=seed, num_particles=num_particles, batch_size = 2_500_000)
+    photons, photon_tracks, particle_histories = rm.get_simulation_results()
+    am = AnalysisManager(
+                gm,
+                experiment_name,
+                plots,
+                photons,
+                photon_tracks,
+                seed,
+                particle_histories,
+                save = False,
+                show = False,
+                print = True,
+            )
     
     photons, photon_tracks, particle_histories = rm.get_simulation_results()
     am = AnalysisManager(
